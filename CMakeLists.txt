@@ -77,6 +77,19 @@ if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lib/glad/include)
 	message("Finished generating glad library files")
 endif()
 
+
+# assimp
+set(BUILD_ASSIMP_TOOLS  OFF)
+set(ASSIMP_BUILD_ASSIMP_TOOLS  OFF)
+set(ASSIMP_BUILD_SAMPLES  OFF)
+set(ASSIMP_BUILD_TESTS  OFF)
+set(ASSIMP_COVERALLS  OFF)
+set(ASSIMP_NO_EXPORT  ON)
+set(ASSIMP_BUILD_STATIC_LIB ON)
+add_subdirectory(lib/assimp)
+link_directories("lib/assimp/build/code")
+
+
 #
 # Set include paths
 #
@@ -129,6 +142,7 @@ add_executable (${PROJECT_NAME} ${PROJECT_SOURCES} ${PROJECT_HEADERS}
 target_link_libraries (${PROJECT_NAME}
                        glfw
                        sfml-audio
+                       assimp
                        fmt::fmt
                        ${GLFW_LIBRARIES}
                        ${GLAD_LIBRARIES})

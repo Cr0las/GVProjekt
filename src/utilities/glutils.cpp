@@ -38,7 +38,8 @@ unsigned int generateBuffer(Mesh &mesh) {
 
     tangents.resize(mesh.vertices.size());
     bitangents.resize(mesh.vertices.size());
-    
+    printf("5");
+    printf("%i %i", mesh.vertices.size(), mesh.textureCoordinates.size());
     for (int i = 0; i < mesh.vertices.size()-2; i += 3) {
 
         // Shortcuts for vertices
@@ -67,7 +68,7 @@ unsigned int generateBuffer(Mesh &mesh) {
         bitangents.at(i+1) = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x) * r;
         bitangents.at(i+2) = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x) * r;
     }
-
+    printf("6");
     generateAttribute(3, 3, tangents, true);
     generateAttribute(4, 3, bitangents, true);
 

@@ -44,6 +44,15 @@ struct SceneNode {
 	glm::vec3 rotation;
 	glm::vec3 scale;
 
+	glm::vec3 forward = glm::vec3(-1, 0, 0);
+	glm::vec3 guide = glm::vec3(-1, 0, 0);
+
+	bool bull = true; //if false for bullet it is active		If boid can attack
+	bool locked = false; //lockted in its current trajectory
+	float time = 100;
+	bool deactivated = false;
+    bool reset = false;
+
 	// A transformation matrix representing the transformation of the node's location relative to its parent. This matrix is updated every frame.
 	glm::mat4 currentTransformationMatrix;
 
